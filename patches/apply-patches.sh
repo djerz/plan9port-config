@@ -24,6 +24,6 @@ cd "$REPOSITORYROOT"
 echo "applying patches..."
 for p in $PATCHFILES; do
 	echo "    $p"
-	patch -p1 < "$p"
+	patch --posix -p1 < "$p"
 done
 echo "done"
