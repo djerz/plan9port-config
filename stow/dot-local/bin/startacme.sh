@@ -52,12 +52,10 @@ fi
 
 # Set start file and pass through other params
 startparams="$@"
-startfile=$HOME/notes/start
+startfile=$HOME/local/notes/index.txt
 if [ "$startparams" = "" ]; then
 	if [ -f "$startfile" ]; then
-		startparams="-c 1 $startfile"
-	else
-		echo "Start file does not exist, skipping load: $startfile" 1>&2
+		startparams="-c 2 $startfile"
 	fi
 fi
 
@@ -79,14 +77,15 @@ EOF
 		;;
 	Linux)
 		if [ -z "$BROWSER" ]; then
-			if command -v garcon-url-handler >/dev/null 2>&1; then
+			if command -v google-chrome >/dev/null 2>&1; then
 				BROWSER=google-chrome
 			else
 				BROWSER=none
 			fi
 		fi
-		font="lib/font/bit/luc/unicode.14.font"
-		altfont="/mnt/font/PragmataPro-Regular/20a/font"
+		#font="/lib/font/bit/luc/unicode.8.font"
+		font="/mnt/font/NotoSans-Regular/12a/font"
+		altfont="/lib/font/bit/lucsans/euro.8.font"
 		export acmefonts=$(cat <<EOF
 $font
 $altfont
