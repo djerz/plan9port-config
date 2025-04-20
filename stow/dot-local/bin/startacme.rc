@@ -1,6 +1,6 @@
 #!/usr/bin/env rc
 
-# ~/.local/bin/startacme.rc - Launcher for plan9port Acme text editor
+# ~/local/bin/startacme.rc - Launcher for plan9port Acme text editor
 #
 # To set fonts (run '9p ls font' to see available non-9p fonts), run acme with
 #   -f $font   : Set variable font ( default: $PLAN9/font/lucsans/euro.8.font )
@@ -48,7 +48,7 @@
 #     mkdir -p "$NAMESPACE"
 #     shift; shift
 #   fi
-#   $PLAN9/bin/rc $HOME/.local/bin/startacme.rc "$@"
+#   $PLAN9/bin/rc $HOME/local/bin/startacme.rc "$@"
 
 # Default width of a tab in 0 glyph width multiples
 if (~ $#tabstop 0) tabstop=4

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# ~/.local/bin/startacme.sh : Acme launcher
+# ~/local/bin/startacme.sh : Acme launcher
 # If plumbing web URLs does not work, set environment var BROWSER=none
 
 # Usage:
@@ -12,19 +12,19 @@ set -e
 
 # Make sure PLAN9 env var and PATH are set properly
 if [ -z "$PLAN9" ]; then
-	if [ -d "$HOME/.local/plan9" ]; then
-		export PLAN9=$HOME/.local/plan9
+	if [ -d "$HOME/local/plan9port" ]; then
+		export PLAN9=$HOME/local/plan9port
 		export PATH=$PATH:$PLAN9/bin
 	elif [ -d "/usr/local/plan9port" ]; then
 		export PLAN9=/usr/local/plan9port
 		export PATH=$PATH:$PLAN9/bin
 	else
-		echo "PLAN9 undefined and plan9port install not found at /usr/local/plan9 or $HOME/.local/plan9" >&2
+		echo "PLAN9 undefined and plan9port install not found at /usr/local/plan9port or $HOME/local/plan9port" >&2
 		exit 1
 	fi
 fi
-if ! $(echo "$PATH" | grep "$HOME/.acme/bin" >/dev/null 2>&1); then
-	export PATH=$HOME/.acme/bin:$PATH
+if ! $(echo "$PATH" | grep "$HOME/bin/acme" >/dev/null 2>&1); then
+	export PATH=$HOME/bin/acme:$PATH
 fi
 
 # '-N' requires a patched Acme where 'acme -t someTitle' sets the window title
@@ -52,7 +52,7 @@ fi
 
 # Set start file and pass through other params
 startparams="$@"
-startfile=$HOME/.acme/start
+startfile=$HOME/notes/start
 if [ "$startparams" = "" ]; then
 	if [ -f "$startfile" ]; then
 		startparams="-c 1 $startfile"
@@ -80,7 +80,7 @@ EOF
 	Linux)
 		if [ -z "$BROWSER" ]; then
 			if command -v garcon-url-handler >/dev/null 2>&1; then
-				BROWSER=garcon-url-handler
+				BROWSER=google-chrome
 			else
 				BROWSER=none
 			fi
@@ -100,7 +100,7 @@ esac
 
 # Launch Acme
 visibleclicks=1 SHELL=rc BROWSER=$BROWSER \
-	$PLAN9/bin/rc $HOME/.local/bin/startacme.rc \
+	$PLAN9/bin/rc $HOME/local/bin/startacme.rc \
 	-f $font \
 	-F $altfont \
 	$titleparams \
