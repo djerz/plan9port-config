@@ -14,7 +14,7 @@
 #    font=/mnt/font/GoMono/16a/font startsam.rc
 
 # Run only a single instance of plumber
-9p stat plumb >[2]/dev/null >[1=2] || 9 plumber
+9p stat plumb >[2]/dev/null >[1=2] || 9 plumber -p $HOMe/local/lib/plumbing
 
 # Run only a single instance of fontsrv
 9p stat font >[2]/dev/null >[1=2] || 9 fontsrv &
