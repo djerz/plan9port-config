@@ -84,7 +84,8 @@ EOF
 			fi
 		fi
 		#font="/lib/font/bit/luc/unicode.8.font"
-		font="/mnt/font/NotoSans-Regular/12a/font"
+		#font="/mnt/font/NotoSans-Regular/12a/font"
+		font="/mnt/font/UbuntuMono-Regular/12a/font"
 		altfont="/lib/font/bit/lucsans/euro.8.font"
 		export acmefonts=$(cat <<EOF
 $font
@@ -103,4 +104,5 @@ visibleclicks=1 SHELL=rc BROWSER=$BROWSER \
 	-f $font \
 	-F $altfont \
 	$titleparams \
-	$startparams
+	$startparams \
+	&
