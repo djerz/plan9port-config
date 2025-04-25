@@ -24,7 +24,7 @@ if [ -z "$PLAN9" ]; then
 	fi
 fi
 if ! $(echo "$PATH" | grep "$HOME/bin/acme" >/dev/null 2>&1); then
-	export PATH=$HOME/bin/acme:$PATH
+	export PATH=$HOME/local/bin/acme:$PATH
 fi
 
 # '-N' requires a patched Acme where 'acme -t someTitle' sets the window title
@@ -84,8 +84,11 @@ EOF
 			fi
 		fi
 		#font="/lib/font/bit/luc/unicode.8.font"
+		#font="/mnt/font/DejaVuSansMono/12a/font"
+		font="/mnt/font/DejaVuSans/12a/font"
+		#font="/mnt/font/DejaVuSerif/12a/font"
 		#font="/mnt/font/NotoSans-Regular/12a/font"
-		font="/mnt/font/UbuntuMono-Regular/12a/font"
+		#font="/mnt/font/UbuntuMono-Regular/12a/font"
 		altfont="/lib/font/bit/lucsans/euro.8.font"
 		export acmefonts=$(cat <<EOF
 $font
